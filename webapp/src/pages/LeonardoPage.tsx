@@ -20,7 +20,7 @@ const LeonardoPage = () => {
             strength: 1,
             prompt: text,
         })
-      };
+    };
 
     useEffect(() => {
         if (text === '' || api === '') {
