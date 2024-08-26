@@ -3,6 +3,7 @@ import './App.css';
 import {Routes, Route} from 'react-router-dom';
 
 import {ROLES} from './types/users';
+import LeonardoPage from './pages/LeonardoPage';
 
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage'));
@@ -61,6 +62,7 @@ function App() {
                     <Route path="founders" element={<Landing/>}/>
                     <Route path="onboarding" element={<OnboardingPage/>}/>
                     <Route path="tutoring" element={<TutoringMain/>}/>
+                    <Route path="leonardo" element={<LeonardoPage/>}/>
                 </Route>
                 <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Admin, ROLES.Customer]}/>}>
                     <Route path="" element={<Layout/>}>
