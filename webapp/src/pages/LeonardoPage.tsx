@@ -26,9 +26,9 @@ const LeonardoPage = () => {
             imageDataUrl: img,
             strength: 1,
             prompt: text,
-            seed: seed ? convert_to_float(seed) : undefined,
-            guidance: convert_to_float(guidance),
-            steps: convert_to_float(steps),
+            seed: seed ? convert(seed) : undefined,
+            guidance: convert(guidance),
+            steps: convert(steps),
             style,
         })
     };
@@ -106,11 +106,11 @@ const LeonardoPage = () => {
 
 export default LeonardoPage;
 
-function convert_to_float(a: string): number {
+function convert(a: string): number {
 
     // Type conversion
     // of string to float
-    let floatValue = +a;
+    const floatValue = +a;
 
     // Return float value
     return floatValue;
