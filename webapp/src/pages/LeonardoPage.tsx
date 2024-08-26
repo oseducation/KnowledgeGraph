@@ -6,6 +6,13 @@ const LeonardoPage = () => {
     const [text, setText] = React.useState('');
     const [api, setAPI] = React.useState('');
 
+    const [guidance, setGuidance] = React.useState('1');
+    const [strength, setStrength] = React.useState('1');
+    const [style, setStyle] = React.useState('DYNAMIC');
+    const [steps, setSteps] = React.useState('4');
+    const [seed, setSeed] = React.useState('');
+
+
     const options = {
         method: 'POST',
         headers: {
@@ -19,9 +26,10 @@ const LeonardoPage = () => {
             imageDataUrl: img,
             strength: 1,
             prompt: text,
-            guidance: 1,
-            steps: 4,
-            style: "DYNAMIC"
+            seed: seed ? convert_to_float(seed) : undefined,
+            guidance: convert_to_float(guidance),
+            steps: convert_to_float(steps),
+            style,
         })
     };
 
@@ -57,8 +65,53 @@ const LeonardoPage = () => {
                 onChange={(e) => setText(e.target.value)}
                 sx={{width: '400px', borderRadius: '12px'}}
             />
+            <InputBase
+                placeholder="Guidence"
+                autoComplete='off'
+                value={guidance}
+                onChange={(e) => setGuidance(e.target.value)}
+                sx={{width: '400px', borderRadius: '12px'}}
+            />
+            <InputBase
+                placeholder="Strength"
+                autoComplete='off'
+                value={strength}
+                onChange={(e) => setStrength(e.target.value)}
+                sx={{width: '400px', borderRadius: '12px'}}
+            />
+            <InputBase
+                placeholder="Style"
+                autoComplete='off'
+                value={style}
+                onChange={(e) => setStyle(e.target.value)}
+                sx={{width: '400px', borderRadius: '12px'}}
+            />
+            <InputBase
+                placeholder="Steps"
+                autoComplete='off'
+                value={steps}
+                onChange={(e) => setSteps(e.target.value)}
+                sx={{width: '400px', borderRadius: '12px'}}
+            />
+            <InputBase
+                placeholder="Seed"
+                autoComplete='off'
+                value={seed}
+                onChange={(e) => setSeed(e.target.value)}
+                sx={{width: '400px', borderRadius: '12px'}}
+            />
         </Box>
     );
 }
 
 export default LeonardoPage;
+
+function convert_to_float(a: string): number {
+
+    // Type conversion
+    // of string to float
+    let floatValue = +a;
+
+    // Return float value
+    return floatValue;
+}
