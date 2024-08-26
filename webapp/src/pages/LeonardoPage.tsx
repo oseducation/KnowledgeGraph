@@ -20,9 +20,6 @@ const LeonardoPage = () => {
             strength: 1,
             prompt: text,
             guidance: 1,
-            jpegQuality: 85,
-            numImages: 1,
-            originalVAE: false,
             steps: 4,
             style: "DYNAMIC"
         })
